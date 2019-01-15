@@ -1,0 +1,16 @@
+plugin:
+  name: easydb-hijri-gregorian-converter
+  version: 1.0
+  url: https://github.com/programmfabrik/easydb-hijri-gregorian-converter
+  displayname:
+    de-DE: Hijri Gregorian Converter
+    en-US: Hijri Gregorian Converter
+  info:
+    de-DE: Hijri date to Gregorian date converter
+    en-US: Hijri date to Gregorian date converter
+  server:
+    api-version:
+      require: 1
+  webfrontend:
+    url: easydb-hijri-gregorian-converter.js
+    l10n: l10n/
