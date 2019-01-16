@@ -27,7 +27,6 @@ class ez5.HijriGregorianConverter
 			to = spl[1].trim()
 			has_to = true
 		
-		# , "from_date:", from_date, "to_date:", to_date);
 		from_date = @convert_text_to_date(format, from)
 		if has_to
 			to_date = @convert_text_to_date(format, to)
