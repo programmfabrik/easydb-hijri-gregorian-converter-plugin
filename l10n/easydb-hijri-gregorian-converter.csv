@@ -1,5 +1,7 @@
 ,key,de-DE,en-US
 ,hijri.gregorian.converter.mask.splitter.title|text,Hijri to Gregorian converter,Hijri to Gregorian converter
 ,hijri.gregorian.converter.mask.splitter.name,Hijri to Gregorian converter,Hijri to Gregorian converter
-,hijri.gregorian.converter.button.to-hijri|text,AD => AH,AD => AH
-,hijri.gregorian.converter.button.to-gregorian|text,AH => AD,AH => AD
+,hijri.gregorian.converter.button.to-hijri|text,Gregorian > Hiri,Gregorian > Hiri
+,hijri.gregorian.converter.button.to-gregorian|text,Hirji > Gregorian,Hirji > Gregorian
+,hijri.gregorian.converter.button.to-hijri|icon,fa-exchange,fa-exchange
+,hijri.gregorian.converter.button.to-gregorian|icon,fa-exchange,fa-exchange

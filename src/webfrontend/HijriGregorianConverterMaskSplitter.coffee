@@ -16,28 +16,55 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 			return innerFields
 
 		data = opts.data
-		buttonBar = new CUI.Buttonbar(class: "ez5-field-block", buttons: [
-			loca_key: "hijri.gregorian.converter.button.to-hijri"
-			onClick: =>
-				gregorianValue = data[dateGregorian.name()]?.value
-				if CUI.util.isEmpty(gregorianValue) or not CUI.util.isString(gregorianValue)
-					return
 
+		toHijriButton = new LocaButton
+			loca_key: "hijri.gregorian.converter.button.to-hijri"
+			disabled: @__isDateInvalidOrEmpty(data, dateGregorian, opts)
+			onClick: =>
+				gregorianValue = @__getDateValue(data, dateGregorian)
 				hijriValue = ez5.HijriGregorianConverter.gregorianToHijri(gregorianValue)
 				dateHijri.updateValue(data, hijriValue)
-		,
-			loca_key: "hijri.gregorian.converter.button.to-gregorian"
-			onClick: =>
-				hijriValue = data[dateHijri.name()]?.value
-				if CUI.util.isEmpty(hijriValue) or not CUI.util.isString(hijriValue)
-					return
 
+		toGregorianButton = new LocaButton
+			loca_key: "hijri.gregorian.converter.button.to-gregorian"
+			disabled: @__isDateInvalidOrEmpty(data, dateHijri, opts)
+			onClick: =>
+				hijriValue = @__getDateValue(data, dateHijri)
 				gregorianValue = ez5.HijriGregorianConverter.hijriToGregorian(hijriValue)
 				dateGregorian.updateValue(data, gregorianValue)
-		])
+
+		CUI.Events.listen
+			node: innerFields[0]
+			type: "editor-changed"
+			call: =>
+				if @__isDateInvalidOrEmpty(data, dateGregorian, opts)
+					toHijriButton.disable()
+				else
+					toHijriButton.enable()
+
+				if @__isDateInvalidOrEmpty(data, dateHijri, opts)
+					toGregorianButton.disable()
+				else
+					toGregorianButton.enable()
+
+		buttonBar = new CUI.Buttonbar(class: "ez5-field-block", buttons: [toHijriButton, toGregorianButton])
 
 		CUI.dom.append(innerFields[0], buttonBar)
 		return innerFields
+
+	__isDateInvalidOrEmpty: (data, field, opts) ->
+		gregorianValue = @__getDateValue(data, field)
+		if CUI.util.isEmpty(gregorianValue)
+			return true
+
+		checkedValue = field.checkValue(data, null, opts)
+		if not CUI.util.isTrue(checkedValue) # If checkedValue is true it means that the value is valid.
+			return true
+
+		return false
+
+	__getDateValue: (data, field) ->
+		return data[field.name()]?.value
 
 	getOptions: ->
 		[]
