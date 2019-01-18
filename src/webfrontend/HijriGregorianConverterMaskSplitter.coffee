@@ -24,6 +24,8 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 				gregorianValue = @__getDateValue(data, dateGregorian)
 				hijriValue = ez5.HijriGregorianConverter.gregorianToHijri(gregorianValue)
 				dateHijri.updateValue(data, hijriValue)
+				toHijriButton.disable()
+				toGregorianButton.disable()
 
 		toGregorianButton = new LocaButton
 			loca_key: "hijri.gregorian.converter.button.to-gregorian"
@@ -32,6 +34,21 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 				hijriValue = @__getDateValue(data, dateHijri)
 				gregorianValue = ez5.HijriGregorianConverter.hijriToGregorian(hijriValue)
 				dateGregorian.updateValue(data, gregorianValue)
+				toHijriButton.disable()
+				toGregorianButton.disable()
+
+		areDatesAlreadyConverted = =>
+			if toHijriButton.isDisabled() or toGregorianButton.isDisabled()
+				return
+
+			gregorianValue = @__getDateValue(data, dateGregorian)
+			hijriValue = @__getDateValue(data, dateHijri)
+			convertedValue = ez5.HijriGregorianConverter.hijriToGregorian(hijriValue)
+			if dateGregorian.renderDateValue(convertedValue) == dateGregorian.renderDateValue(gregorianValue)
+				toHijriButton.disable()
+				toGregorianButton.disable()
+			return
+		areDatesAlreadyConverted()
 
 		CUI.Events.listen
 			node: innerFields[0]
@@ -46,6 +63,8 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 					toGregorianButton.disable()
 				else
 					toGregorianButton.enable()
+
+				areDatesAlreadyConverted()
 
 		buttonBar = new CUI.Buttonbar(class: "ez5-field-block", buttons: [toHijriButton, toGregorianButton])
 
