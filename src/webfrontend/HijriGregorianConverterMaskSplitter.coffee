@@ -3,6 +3,9 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 	renderField: (opts) ->
 		innerFields = @renderInnerFields(opts)
 
+		if opts.mode == "detail"
+			return innerFields
+
 		fieldsRendererPlain = @__customFieldsRenderer.fields[0]
 		if fieldsRendererPlain not instanceof FieldsRendererPlain
 			return innerFields
