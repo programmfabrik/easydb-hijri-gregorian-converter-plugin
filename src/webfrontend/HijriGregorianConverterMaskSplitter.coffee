@@ -10,12 +10,18 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 		if fieldsRendererPlain not instanceof FieldsRendererPlain
 			return innerFields
 
-		dateGregorian = fieldsRendererPlain.fields[0]
-		dateHijri = fieldsRendererPlain.fields[1]
-		if dateGregorian not instanceof DateColumn or dateHijri not instanceof DateColumn
+		fields = fieldsRendererPlain.fields or []
+		if not fields
 			return innerFields
 
-		if dateGregorian instanceof DateRangeColumn or dateHijri instanceof DateRangeColumn
+		dateFields = fields.filter((field) ->
+			return field instanceof DateColumn and field not instanceof DateRangeColumn
+		)
+
+		dateGregorian = dateFields[0]
+		dateHijri = dateFields[1]
+
+		if not dateGregorian or not dateHijri
 			return innerFields
 
 		data = opts.data
