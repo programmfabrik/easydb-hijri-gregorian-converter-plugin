@@ -84,6 +84,12 @@ class ez5.HijriGregorianConverter
 				map[use_format + 'Year']
 			]
 
+		year = "#{arr[0]}"
+		if year.length < 4
+			zeroArray = (0 for [1..4 - year.length])
+			year = zeroArray.join("") + year
+			arr[0] = year
+
 		if spl.length == 1
 			# mode is always "-"
 			arr[0]
