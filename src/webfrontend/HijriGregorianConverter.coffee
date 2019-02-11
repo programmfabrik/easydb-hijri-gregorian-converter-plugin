@@ -2,10 +2,10 @@
 class ez5.HijriGregorianConverter
 
 	@gregorianToHijri: (value) ->
-		return ez5.HijriGregorianConverter::convert_text_to_dates('C', value)
+		return "" + ez5.HijriGregorianConverter::convert_text_to_dates('C', value)
 
 	@hijriToGregorian: (value) ->
-		return ez5.HijriGregorianConverter::convert_text_to_dates('H', value)
+		return "" + ez5.HijriGregorianConverter::convert_text_to_dates('H', value)
 
 	convert_text_to_dates: (format, txt) ->
 		# convert dates

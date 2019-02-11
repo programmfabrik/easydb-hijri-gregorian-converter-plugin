@@ -53,7 +53,7 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 			gregorianValue = @__getDateValue(data, dateGregorian)
 			hijriValue = @__getDateValue(data, dateHijri)
 			convertedValue = ez5.HijriGregorianConverter.hijriToGregorian(hijriValue)
-			if dateGregorian.renderDateValue(convertedValue) == dateGregorian.renderDateValue(gregorianValue)
+			if dateGregorian.renderDateValue("#{convertedValue}") == dateGregorian.renderDateValue("#{gregorianValue}")
 				toHijriButton.disable()
 				toGregorianButton.disable()
 			return
