@@ -90,9 +90,11 @@ class ez5.HijriGregorianConverter
 			year = zeroArray.join("") + year
 			arr[0] = year
 
-		if spl.length == 1
+		if spl.length == 1 # YEAR
 			# mode is always "-"
 			arr[0]
+		else if spl.length == 2 # MONTH YEAR
+			arr[0] + mode + arr[1]
 		else
 			arr.join mode
 
