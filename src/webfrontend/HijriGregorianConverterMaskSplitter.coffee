@@ -100,5 +100,8 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 	trashable: ->
 		true
 
+	isEnabledForNested: ->
+		return true
+
 CUI.ready =>
 	MaskSplitter.plugins.registerPlugin(ez5.HijriGregorianConverterMaskSplitter)
