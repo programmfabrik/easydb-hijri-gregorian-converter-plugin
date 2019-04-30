@@ -10,7 +10,7 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 		if fieldsRendererPlain not instanceof FieldsRendererPlain
 			return innerFields
 
-		fields = fieldsRendererPlain.fields or []
+		fields = fieldsRendererPlain.getFields() or []
 		if not fields
 			return innerFields
 
