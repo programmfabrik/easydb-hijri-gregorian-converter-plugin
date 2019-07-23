@@ -15,13 +15,20 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 			return innerFields
 
 		dateFields = fields.filter((field) ->
-			return field instanceof DateColumn and field not instanceof DateRangeColumn
+			return field instanceof DateColumn
 		)
 
 		dateGregorian = dateFields[0]
 		dateHijri = dateFields[1]
 
 		if not dateGregorian or not dateHijri
+			return innerFields
+
+		# Both DateColumns or both DateRangeColumn.
+		if dateGregorian instanceof DateRangeColumn and dateHijri not instanceof DateRangeColumn
+			return innerFields
+
+		if dateHijri instanceof DateRangeColumn and dateGregorian not instanceof DateRangeColumn
 			return innerFields
 
 		data = opts.data
@@ -31,7 +38,7 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 			disabled: @__isDateInvalidOrEmpty(data, dateGregorian, opts)
 			onClick: =>
 				gregorianValue = @__getDateValue(data, dateGregorian)
-				hijriValue = ez5.HijriGregorianConverter.gregorianToHijri(gregorianValue)
+				hijriValue = @__toHijri(gregorianValue)
 				dateHijri.updateValue(data, hijriValue)
 				toHijriButton.disable()
 				toGregorianButton.disable()
@@ -41,7 +48,7 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 			disabled: @__isDateInvalidOrEmpty(data, dateHijri, opts)
 			onClick: =>
 				hijriValue = @__getDateValue(data, dateHijri)
-				gregorianValue = ez5.HijriGregorianConverter.hijriToGregorian(hijriValue)
+				gregorianValue = @__toGregorian(hijriValue)
 				dateGregorian.updateValue(data, gregorianValue)
 				toHijriButton.disable()
 				toGregorianButton.disable()
@@ -52,8 +59,8 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 
 			gregorianValue = @__getDateValue(data, dateGregorian)
 			hijriValue = @__getDateValue(data, dateHijri)
-			convertedValue = ez5.HijriGregorianConverter.hijriToGregorian(hijriValue)
-			if dateGregorian.renderDateValue("#{convertedValue}") == dateGregorian.renderDateValue("#{gregorianValue}")
+			hijriConvertedValue = @__toGregorian(hijriValue)
+			if @__isSameDateValue(dateGregorian, gregorianValue, hijriConvertedValue)
 				toHijriButton.disable()
 				toGregorianButton.disable()
 			return
@@ -91,8 +98,42 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 
 		return false
 
-	__getDateValue: (data, field) ->
-		return data[field.name()]?.value
+	__getDateValue: (_data, field) ->
+		data = _data[field.name()]
+		if not data
+			return
+
+		if not CUI.util.isUndef(data.value) # Date Field
+			return data.value
+
+		return from: data.from, to: data.to # Date Range field
+
+	__toGregorian: (value) ->
+		if CUI.util.isPlainObject(value) # Date Range column
+			returnValue = {}
+			if value.from
+				returnValue.from = ez5.HijriGregorianConverter.hijriToGregorian(value.from)
+			if value.to
+				returnValue.to = ez5.HijriGregorianConverter.hijriToGregorian(value.to)
+			return returnValue
+		return ez5.HijriGregorianConverter.hijriToGregorian(value)
+
+	__toHijri: (value) ->
+		if CUI.util.isPlainObject(value) # Date Range column
+			returnValue = {}
+			if value.from
+				returnValue.from = ez5.HijriGregorianConverter.gregorianToHijri(value.from)
+			if value.to
+				returnValue.to = ez5.HijriGregorianConverter.gregorianToHijri(value.to)
+			return returnValue
+		return ez5.HijriGregorianConverter.gregorianToHijri(value)
+
+	__isSameDateValue: (dateField, value, convertedValue) ->
+		if CUI.util.isPlainObject(value) and CUI.util.isPlainObject(convertedValue) # Date Range column
+			return dateField.renderDateValue("#{value.from}") == dateField.renderDateValue("#{convertedValue.to}") &&
+				dateField.renderDateValue("#{value.from}") == dateField.renderDateValue("#{convertedValue.to}")
+
+		return dateField.renderDateValue("#{value}") == dateField.renderDateValue("#{convertedValue}")
 
 	getOptions: ->
 		[]
