@@ -1,5 +1,8 @@
 class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 
+	isSimpleSplit: ->
+		false
+
 	renderField: (opts) ->
 		innerFields = @renderInnerFields(opts)
 
@@ -68,7 +71,10 @@ class ez5.HijriGregorianConverterMaskSplitter extends CustomMaskSplitter
 
 		CUI.Events.listen
 			node: innerFields[0]
-			type: "editor-changed"
+			type: [
+				"editor-changed"
+				"search-input-change"
+			]
 			call: =>
 				if @__isDateInvalidOrEmpty(data, dateGregorian, opts)
 					toHijriButton.disable()
