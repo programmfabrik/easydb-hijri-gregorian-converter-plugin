@@ -85,7 +85,7 @@ class ez5.HijriGregorianConverter
 			]
 
 		year = "#{arr[0]}"
-		if year.length < 4
+		if year.length < 4 and year[0] != "-" # Negative year.
 			zeroArray = (0 for [1..4 - year.length])
 			year = zeroArray.join("") + year
 			arr[0] = year
