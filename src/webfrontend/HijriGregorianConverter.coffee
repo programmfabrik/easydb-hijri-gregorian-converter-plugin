@@ -59,8 +59,9 @@ class ez5.HijriGregorianConverter
 			day = spl[2]
 			mode = '-'
 		map = {}
-		map[format + 'Day'] = parseInt(day) or 1
-		map[format + 'Month'] = parseInt(month) or 1
+		# When day/month is not set, it means that it is only a year, so 15 and 8 means that the year will be always converted correctly.
+		map[format + 'Day'] = parseInt(day) or 15
+		map[format + 'Month'] = parseInt(month) or 8
 		map[format + 'Year'] = parseInt(year)
 		if format == 'C'
 			@__gregToIsl map
