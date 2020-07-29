@@ -21,19 +21,23 @@ class ez5.HijriGregorianConverter
 				null
 				null
 			]
+
 		spl = txt.split(' - ')
 		from = spl[0].trim()
 		if spl.length > 1
 			to = spl[1].trim()
 			has_to = true
-		
-		from_date = @convert_text_to_date(format, from)
-		if has_to
-			to_date = @convert_text_to_date(format, to)
-		if has_to
-			from_date + ' - ' + to_date
-		else
-			from_date
+
+		try
+			from_date = @convert_text_to_date(format, from)
+			if has_to
+				to_date = @convert_text_to_date(format, to)
+			if has_to
+				from_date + ' - ' + to_date
+			else
+				from_date
+		catch err
+			return err
 
 	convert_text_to_date: (format, txt) ->
 		spl = undefined
@@ -58,6 +62,12 @@ class ez5.HijriGregorianConverter
 			month = spl[1]
 			day = spl[2]
 			mode = '-'
+
+		if format == "C" and year < 622
+			throw "invalid"
+		if format == "H" and year < 1
+			throw "invalid"
+
 		map = {}
 		# When day/month is not set, it means that it is only a year, so 15 and 8 means that the year will be always converted correctly.
 		map[format + 'Day'] = parseInt(day) or 15
