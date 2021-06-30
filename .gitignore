@@ -2,6 +2,7 @@
 .sass-cache
 build
 build-stamp-*
+build-info.json
 *~
 .\#*
 \#*\#
