@@ -1,7 +1,7 @@
 plugin:
-  name: easydb-hijri-gregorian-converter
+  name: easydb-hijri-gregorian-converter-plugin
   version: 1.0
-  url: https://github.com/programmfabrik/easydb-hijri-gregorian-converter
+  url: https://github.com/programmfabrik/easydb-hijri-gregorian-converter-plugin
   displayname:
     de-DE: Hijri Gregorian Converter
     en-US: Hijri Gregorian Converter
