@@ -1,5 +1,5 @@
 plugin:
-  name: easydb-hijri-gregorian-converter-plugin
+  name: easydb-hijri-gregorian-converter
   version: 1.0
   url: https://github.com/programmfabrik/easydb-hijri-gregorian-converter-plugin
   displayname:
