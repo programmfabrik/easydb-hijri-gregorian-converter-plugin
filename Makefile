@@ -1,4 +1,5 @@
 PLUGIN_NAME = easydb-hijri-gregorian-converter
+PLUGIN_PATH = easydb-hijri-gregorian-converter-plugin
 
 EASYDB_LIB = easydb-library
 L10N_FILES = l10n/$(PLUGIN_NAME).csv
