@@ -11,7 +11,7 @@ INSTALL_FILES = \
 	$(WEB)/l10n/de-DE.json \
 	$(WEB)/l10n/en-US.json \
 	$(JS) \
-	HijriGregorianConverter.config.yml
+	manifest.yml
 
 COFFEE_FILES = src/webfrontend/HijriGregorianConverterMaskSplitter.coffee \
                src/webfrontend/HijriGregorianConverter.coffee
