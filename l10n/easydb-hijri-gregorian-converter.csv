@@ -1,8 +1,8 @@
 ,key,de-DE,en-US
-,hijri.gregorian.converter.mask.splitter.title|text,Hijri to Gregorian converter,Hijri to Gregorian converter
-,hijri.gregorian.converter.mask.splitter.name,Hijri to Gregorian converter,Hijri to Gregorian converter
-,hijri.gregorian.converter.button.to-hijri|text,Gregorian > Hiri,Gregorian > Hiri
-,hijri.gregorian.converter.button.to-gregorian|text,Hirji > Gregorian,Hirji > Gregorian
+,hijri.gregorian.converter.mask.splitter.title|text,Hijri zu Gregorianisch Konverter,Hijri to Gregorian converter
+,hijri.gregorian.converter.mask.splitter.name,Hijri zu Gregorianisch Konverter,Hijri to Gregorian converter
+,hijri.gregorian.converter.button.to-hijri|text,Gregorianisch > Hiri,Gregorian > Hiri
+,hijri.gregorian.converter.button.to-gregorian|text,Hirji > Gregorianisch,Hirji > Gregorian
 ,hijri.gregorian.converter.button.to-hijri|icon,fa-exchange,fa-exchange
 ,hijri.gregorian.converter.button.to-gregorian|icon,fa-exchange,fa-exchange
 ,mask.splitter.panel.spliter_name.hijri-gregorian-converter-mask-splitter-end|text,-,-
