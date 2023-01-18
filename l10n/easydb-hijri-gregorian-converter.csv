@@ -1,8 +1,8 @@
 ,key,de-DE,en-US,da-DK,fi-FI,sv-SE
 ,hijri.gregorian.converter.button.to-gregorian|icon,fa-exchange,fa-exchange,fa-exchange,fa-exchange,fa-exchange
-,hijri.gregorian.converter.button.to-gregorian|text,Hijri > Gregorianisch,Hijri > Gregorian,Hijri > Gregorian,Hijra > Gregoriaaninen,Hijri > Gregorian
+,hijri.gregorian.converter.button.to-gregorian|text,Hijri > Gregorianisch,Hijri > Gregorian,Hijri > Gregorian,Hijra > Gregoriaaninen,Hijri > Gregoriansk
 ,hijri.gregorian.converter.button.to-hijri|icon,fa-exchange,fa-exchange,fa-exchange,fa-exchange,fa-exchange
-,hijri.gregorian.converter.button.to-hijri|text,Gregorianisch > Hijri,Gregorian > Hijri,Gregorian > Hijri,Gregoriaaninen > Hijra,Gregorian > Hijri
-,hijri.gregorian.converter.mask.splitter.name,Hijri zu Gregorianisch Konverter,Hijri to Gregorian converter,Hijri to Gregorian converter,Hijra - Gregoriaaninen konversio,Hijri to Gregorian converter
-,hijri.gregorian.converter.mask.splitter.title|text,Hijri zu Gregorianisch Konverter,Hijri to Gregorian converter,Hijri to Gregorian converter,Hijra - Gregoriaaninen konversio,Hijri to Gregorian converter
+,hijri.gregorian.converter.button.to-hijri|text,Gregorianisch > Hijri,Gregorian > Hijri,Gregorian > Hijri,Gregoriaaninen > Hijra,Gregoriansk > Hijri
+,hijri.gregorian.converter.mask.splitter.name,Hijri zu Gregorianisch Konverter,Hijri to Gregorian converter,Hijri to Gregorian converter,Hijra - Gregoriaaninen konversio,Hijri till gregoriansk konverterare
+,hijri.gregorian.converter.mask.splitter.title|text,Hijri zu Gregorianisch Konverter,Hijri to Gregorian converter,Hijri to Gregorian converter,Hijra - Gregoriaaninen konversio,Hijri till gregoriansk konverterare
 ,mask.splitter.panel.spliter_name.hijri-gregorian-converter-mask-splitter-end|text,-,-,-,-,-
