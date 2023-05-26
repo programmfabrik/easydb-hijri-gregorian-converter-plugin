@@ -1,8 +1,8 @@
-,key,de-DE,en-US,da-DK,fi-FI,sv-SE
-,hijri.gregorian.converter.button.to-gregorian|icon,fa-exchange,fa-exchange,fa-exchange,fa-exchange,fa-exchange
-,hijri.gregorian.converter.button.to-gregorian|text,Hijri > Gregorianisch,Hijri > Gregorian,Hijri > Gregorian,Hijra > Gregoriaaninen,Hijri > Gregoriansk
-,hijri.gregorian.converter.button.to-hijri|icon,fa-exchange,fa-exchange,fa-exchange,fa-exchange,fa-exchange
-,hijri.gregorian.converter.button.to-hijri|text,Gregorianisch > Hijri,Gregorian > Hijri,Gregorian > Hijri,Gregoriaaninen > Hijra,Gregoriansk > Hijri
-,hijri.gregorian.converter.mask.splitter.name,Hijri zu Gregorianisch Konverter,Hijri to Gregorian converter,Hijri to Gregorian converter,Hijra - Gregoriaaninen konversio,Hijri till gregoriansk konverterare
-,hijri.gregorian.converter.mask.splitter.title|text,Hijri zu Gregorianisch Konverter,Hijri to Gregorian converter,Hijri to Gregorian converter,Hijra - Gregoriaaninen konversio,Hijri till gregoriansk konverterare
-,mask.splitter.panel.spliter_name.hijri-gregorian-converter-mask-splitter-end|text,-,-,-,-,-
+key,de-DE,R,en-US,R,da-DK,R,fi-FI,R,sv-SE,R,fr-FR,R,it-IT,R,es-ES,R
+hijri.gregorian.converter.button.to-gregorian|icon,fa-exchange,FALSE,fa-exchange,FALSE,fa-exchange,FALSE,fa-exchange,FALSE,fa-exchange,FALSE,,FALSE,,FALSE,,FALSE
+hijri.gregorian.converter.button.to-gregorian|text,Hijri > Gregorianisch,FALSE,Hijri > Gregorian,FALSE,Hijri > Gregorian,FALSE,Hijra > Gregoriaaninen,FALSE,Hijri > Gregoriansk,FALSE,,FALSE,,FALSE,,FALSE
+hijri.gregorian.converter.button.to-hijri|icon,fa-exchange,FALSE,fa-exchange,FALSE,fa-exchange,FALSE,fa-exchange,FALSE,fa-exchange,FALSE,,FALSE,,FALSE,,FALSE
+hijri.gregorian.converter.button.to-hijri|text,Gregorianisch > Hijri,FALSE,Gregorian > Hijri,FALSE,Gregorian > Hijri,FALSE,Gregoriaaninen > Hijra,FALSE,Gregoriansk > Hijri,FALSE,,FALSE,,FALSE,,FALSE
+hijri.gregorian.converter.mask.splitter.name,Hijri zu Gregorianisch Konverter,FALSE,Hijri to Gregorian converter,FALSE,Hijri to Gregorian converter,FALSE,Hijra - Gregoriaaninen konversio,FALSE,Hijri till gregoriansk konverterare,FALSE,,FALSE,,FALSE,,FALSE
+hijri.gregorian.converter.mask.splitter.title|text,Hijri zu Gregorianisch Konverter,FALSE,Hijri to Gregorian converter,FALSE,Hijri to Gregorian converter,FALSE,Hijra - Gregoriaaninen konversio,FALSE,Hijri till gregoriansk konverterare,FALSE,,FALSE,,FALSE,,FALSE
+mask.splitter.panel.spliter_name.hijri-gregorian-converter-mask-splitter-end|text,-,FALSE,-,FALSE,-,FALSE,-,FALSE,-,FALSE,,FALSE,,FALSE,,FALSE
